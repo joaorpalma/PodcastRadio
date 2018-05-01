@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Serialization\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Abstractions\" />
+    <Folder Include="Models\DTOs\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\Abstractions\" />
+    <Folder Include="Language\" />
+    <Folder Include="Helpers\Commands\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="SimpleInjector" Version="4.2.2" />
+    <PackageReference Include="Plugin.Share" Version="7.1.1" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.1.1" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Language\Resources-.json" />
+    <None Remove="Language\Resources-en-GB.json" />
+    <None Remove="Language\Resources-pt-PT.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Language\Resources-en-GB.json" />
+    <EmbeddedResource Include="Language\Resources-pt-PT.json" />
+  </ItemGroup>
+</Project>
