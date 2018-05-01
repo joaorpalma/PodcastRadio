@@ -40,12 +40,12 @@
     "translated": "min"
   },
   {
-    "key": "PodcastViewModel_ToFinish",  
-    "translated": "to finish"
+    "key": "PodcastViewModel_Playing",  
+    "translated": "Playing..."
   },
   {
     "key": "PodcastViewModel_Released",
-    "translated": "Released"
+    "translated": "Released:"
   },
   {
     "key": "PodcastViewModel_About",

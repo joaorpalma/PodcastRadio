@@ -17,5 +17,7 @@ namespace PodcastRadio.Core.Models
         public string Duration { get; set; }
         public string Explicit { get; set; }
         public string AudioLink { get; set; }
+        public string PublicationDate { get; set; }
+        public bool IsPlaying { get; set; }
     }
 }

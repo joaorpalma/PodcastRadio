@@ -45,7 +45,6 @@ namespace PodcastRadio.iOS.Views.Main.Cells
             _flagImage.ClipsToBounds = false;
 
             UIImageExtensions.GetCountryFlag(_flagImage, podcast.Country);
-
             UILabelExtensions.SetupLabelAppearance(_dayDateLabel, resultDate[0], Colors.Black, 24f);
             UILabelExtensions.SetupLabelAppearance(_monthDateLabel, resultDate[1], Colors.Black, 12f);
             UILabelExtensions.SetupLabelAppearance(_tracksLabel, $"{podcast.NumberTracks} {locationResources["TracksLabel"]}", Colors.Black, 13f, UIFontWeight.Semibold);

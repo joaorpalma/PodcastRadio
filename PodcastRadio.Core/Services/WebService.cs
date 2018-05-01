@@ -69,7 +69,8 @@ namespace PodcastRadio.Core.Services
                             EpisodeNumber = item.Element(itunes + "episode")?.Value,
                             Duration = item.Element(itunes + "duration")?.Value,
                             Explicit = item.Element(itunes + "explicit")?.Value,
-                            AudioLink = item.Element("enclosure")?.Attribute("url")?.Value
+                            AudioLink = item.Element("enclosure")?.Attribute("url")?.Value,
+                            PublicationDate = item.Element("pubDate")?.Value
                         };
 
                         podcastChannel.Episodes.Add(episode);

@@ -17,12 +17,6 @@ namespace PodcastRadio.iOS.Sources
             Count
         }
 
-        private enum Connections
-        {
-            Website,
-            Count
-        }
-
         private UITableView _tableView;
         private PodcastChannel _podcast;
         private Dictionary<string, string> _locationResources = new Dictionary<string, string>();
@@ -55,7 +49,7 @@ namespace PodcastRadio.iOS.Sources
             {
                 case (int)Sections.Episodes: return _podcast.Episodes.Count;
                 case (int)Sections.About: return 1;
-                case (int)Sections.Connections: return (int)Connections.Count;
+                case (int)Sections.Connections: return 1;
                 default: return 0;
             }
         }

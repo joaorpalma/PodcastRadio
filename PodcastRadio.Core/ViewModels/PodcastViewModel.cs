@@ -96,7 +96,7 @@ namespace PodcastRadio.Core.ViewModels
         private string _nameDurationLabel => L10N.Localize("PodcastViewModel_NameDuration");
         private string _playLabel => L10N.Localize("PodcastViewModel_Play");
         private string _minutesLabel => L10N.Localize("PodcastViewModel_minutes");
-        private string _toFinishLabel => L10N.Localize("PodcastViewModel_ToFinish");
+        private string _playingLabel => L10N.Localize("PodcastViewModel_Playing");
         private string _releasedLabel => L10N.Localize("PodcastViewModel_Released");
         private string _aboutLabel => L10N.Localize("PodcastViewModel_About");
         private string _websiteLabel => L10N.Localize("PodcastViewModel_Website");
@@ -108,7 +108,7 @@ namespace PodcastRadio.Core.ViewModels
             LocationResources.Add("NameDurationLabel", _nameDurationLabel);
             LocationResources.Add("PlayLabel", _playLabel);
             LocationResources.Add("MinutesLabel", _minutesLabel);
-            LocationResources.Add("ToFinishLabel", _toFinishLabel);
+            LocationResources.Add("PlayingLabel", _playingLabel);
             LocationResources.Add("ReleasedLabel", _releasedLabel);
             LocationResources.Add("AboutLabel", _aboutLabel);
             LocationResources.Add("WebsiteLabel", _websiteLabel);

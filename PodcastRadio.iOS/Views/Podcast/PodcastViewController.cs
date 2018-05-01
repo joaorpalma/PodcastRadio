@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using PodcastRadio.Core.ViewModels;
 using PodcastRadio.iOS.Helpers;
 using PodcastRadio.iOS.Views.Base;
@@ -14,9 +15,29 @@ namespace PodcastRadio.iOS.Views.Podcast
         {
             base.ViewDidLoad();
             SetupView();
+
+            ViewModel.PropertyChanged -= ViewModel_PropertyChanged;
+            ViewModel.PropertyChanged += ViewModel_PropertyChanged;
         }
 
-		private void SetupView()
+		private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(ViewModel.Podcast):
+                    SetTableView();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void SetTableView()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SetupView()
         {
             NavigationController.NavigationBar.TopItem.Title = string.Empty;
             NavigationController.NavigationBar.TintColor = Colors.White;
