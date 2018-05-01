@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{1E26D73F-24EA-4BFE-AD3A-36A957080F00}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PodcastRadio.iOS</RootNamespace>
+    <AssemblyName>PodcastRadio.iOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer: Joao Palma (KJNN6NN5JT)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <IOSDebuggerPort>43570</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
+    <MtouchVerbosity></MtouchVerbosity>
+    <CodesignProvision>VS: com.joaopalma.PodcastRadio Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer: Joao Palma (KJNN6NN5JT)</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchVerbosity></MtouchVerbosity>
+    <CodesignProvision>VS: com.joaopalma.PodcastRadio Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <DefineConstants></DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer: Joao Palma (KJNN6NN5JT)</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchVerbosity></MtouchVerbosity>
+    <CodesignProvision>VS: com.joaopalma.PodcastRadio Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer: Joao Palma (KJNN6NN5JT)</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>27896</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchVerbosity></MtouchVerbosity>
+    <CodesignProvision>VS: com.joaopalma.PodcastRadio Development</CodesignProvision>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="MBProgressHUD">
+      <HintPath>..\packages\mbprogresshud.0.9.2.0\lib\Xamarin.iOS\MBProgressHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="SimpleInjector">
+      <HintPath>..\packages\SimpleInjector.4.2.2\lib\netstandard1.3\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.1.1\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Share.Abstractions">
+      <HintPath>..\packages\Plugin.Share.7.1.1\lib\Xamarin.iOS10\Plugin.Share.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Share">
+      <HintPath>..\packages\Plugin.Share.7.1.1\lib\Xamarin.iOS10\Plugin.Share.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SDWebImage">
+      <HintPath>..\packages\Xamarin.SDWebImage.3.7.5\lib\Xamarin.iOS\SDWebImage.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_info.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_info.imageset\ic_info_outline_white.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_info.imageset\ic_info_outline_white_3x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_info.imageset\ic_info_outline_white_2x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\information_close.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\information_close.imageset\ic_close_white.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\information_close.imageset\ic_close_white_2x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\information_close.imageset\ic_close_white_3x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\linn.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\linn.imageset\logo-black-chunky.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_explicit.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_explicit.imageset\icons8-explicit-24.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_explicit.imageset\icons8-explicit-48.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_explicit.imageset\icons8-explicit-72.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_share.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_share.imageset\ic_share_white.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_share.imageset\ic_share_white_2x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_share.imageset\ic_share_white_3x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_weblink.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_weblink.imageset\ic_link.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_weblink.imageset\ic_link_2x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_weblink.imageset\ic_link_3x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_play.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_play.imageset\ic_play_arrow.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_play.imageset\ic_play_arrow_2x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_play.imageset\ic_play_arrow_3x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_stop.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_stop.imageset\ic_stop.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_stop.imageset\ic_stop_2x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_stop.imageset\ic_stop_3x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
+    <Folder Include="Sources\" />
+    <Folder Include="Views\" />
+    <Folder Include="Resources\Assets.xcassets\" />
+    <Folder Include="Views\Main\" />
+    <Folder Include="Views\Information\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Resources\Assets.xcassets\main_info.imageset\" />
+    <Folder Include="Views\CustomViews\" />
+    <Folder Include="Views\Podcast\" />
+    <Folder Include="Resources\Assets.xcassets\information_close.imageset\" />
+    <Folder Include="Resources\Assets.xcassets\linn.imageset\" />
+    <Folder Include="Views\Main\Cells\" />
+    <Folder Include="Resources\Assets.xcassets\main_explicit.imageset\" />
+    <Folder Include="Models\" />
+    <Folder Include="Resources\Assets.xcassets\podcast_share.imageset\" />
+    <Folder Include="Resources\Assets.xcassets\podcast_weblink.imageset\" />
+    <Folder Include="Resources\Assets.xcassets\podcast_play.imageset\" />
+    <Folder Include="Resources\Assets.xcassets\podcast_stop.imageset\" />
+    <Folder Include="Views\Podcast\Cells\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Views\CustomViews\AlertViewController.xib" />
+    <InterfaceDefinition Include="Views\Podcast\PodcastViewController.xib" />
+    <InterfaceDefinition Include="Views\Information\InformationViewController.xib" />
+    <InterfaceDefinition Include="Views\Main\Cells\PodcastCell.xib" />
+    <InterfaceDefinition Include="Views\Main\Cells\PodcastHeaderSearchCell.xib" />
+    <InterfaceDefinition Include="Views\Main\MainViewController.xib" />
+    <InterfaceDefinition Include="Views\CustomViews\PodcastHeaderView.xib" />
+    <InterfaceDefinition Include="Views\Podcast\Cells\EpisodeCell.xib" />
+    <InterfaceDefinition Include="Views\Podcast\Cells\AboutCell.xib" />
+    <InterfaceDefinition Include="Views\Podcast\Cells\ConnectionCell.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Interfaces\IXiOSView.cs" />
+    <Compile Include="Setup.cs" />
+    <Compile Include="Views\Base\XViewController.cs" />
+    <Compile Include="Helpers\Colors.cs" />
+    <Compile Include="Helpers\UIButtonExtensions.cs" />
+    <Compile Include="Helpers\UILabelExtensions.cs" />
+    <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\PlatformSpecificService.cs" />
+    <Compile Include="Services\XiOSNavigationService.cs" />
+    <Compile Include="Services\XiOSThreadDispatcher.cs" />
+    <Compile Include="Views\CustomViews\AlertViewController.cs" />
+    <Compile Include="Views\CustomViews\AlertViewController.designer.cs">
+      <DependentUpon>AlertViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Podcast\PodcastViewController.cs" />
+    <Compile Include="Views\Podcast\PodcastViewController.designer.cs">
+      <DependentUpon>PodcastViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Information\InformationViewController.cs" />
+    <Compile Include="Views\Information\InformationViewController.designer.cs">
+      <DependentUpon>InformationViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\Cells\PodcastCell.cs" />
+    <Compile Include="Views\Main\Cells\PodcastCell.designer.cs">
+      <DependentUpon>PodcastCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\MainSource.cs" />
+    <Compile Include="Helpers\LocalConstants.cs" />
+    <Compile Include="Helpers\UIImageExtensions.cs" />
+    <Compile Include="Views\Main\Cells\PodcastHeaderSearchCell.cs" />
+    <Compile Include="Views\Main\Cells\PodcastHeaderSearchCell.designer.cs">
+      <DependentUpon>PodcastHeaderSearchCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoryPickerModel.cs" />
+    <Compile Include="Views\Main\MainViewController.cs" />
+    <Compile Include="Views\Main\MainViewController.designer.cs">
+      <DependentUpon>MainViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomViews\PodcastHeaderView.cs" />
+    <Compile Include="Views\CustomViews\PodcastHeaderView.designer.cs">
+      <DependentUpon>PodcastHeaderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\PodcastSource.cs" />
+    <Compile Include="Views\Podcast\Cells\EpisodeCell.cs" />
+    <Compile Include="Views\Podcast\Cells\EpisodeCell.designer.cs">
+      <DependentUpon>EpisodeCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Podcast\Cells\AboutCell.cs" />
+    <Compile Include="Views\Podcast\Cells\AboutCell.designer.cs">
+      <DependentUpon>AboutCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Podcast\Cells\ConnectionCell.cs" />
+    <Compile Include="Views\Podcast\Cells\ConnectionCell.designer.cs">
+      <DependentUpon>ConnectionCell.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PodcastRadio.Core\PodcastRadio.Core.csproj">
+      <Project>{F8BF6049-0DE3-4AF8-B2A2-BCC3020171D4}</Project>
+      <Name>PodcastRadio.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\NETStandard.Library.2.0.2\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.2\build\netstandard2.0\NETStandard.Library.targets')" />
+</Project>

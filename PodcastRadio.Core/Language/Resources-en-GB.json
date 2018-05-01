@@ -1,0 +1,78 @@
+﻿[
+  {
+    "key": "MainViewModel_Title",
+    "translated": "Top 10 Podcasts"
+  },
+  {
+    "key": "MainViewModel_Search",
+    "translated": "Search Podcasts"
+  },
+  {
+    "key": "MainViewModel_Category",   
+    "translated": "Category:"
+  },
+  {
+    "key": "MainViewModel_All",
+    "translated": "All"
+  },
+  {
+    "key": "MainViewModel_Tracks",
+    "translated": "Tracks"
+  },
+  {
+    "key": "MainViewModel_By",
+    "translated": "By"
+  },
+  {
+    "key": "PodcastViewModel_Track",
+    "translated": "Track"
+  },
+  {
+    "key": "PodcastViewModel_NameDuration",
+    "translated": "Name & Duration"
+  },
+  {
+    "key": "PodcastViewModel_Play",
+    "translated": "Play"
+  },
+  {
+    "key": "PodcastViewModel_minutes",
+    "translated": "min"
+  },
+  {
+    "key": "PodcastViewModel_ToFinish",  
+    "translated": "to finish"
+  },
+  {
+    "key": "PodcastViewModel_Released",
+    "translated": "Released"
+  },
+  {
+    "key": "PodcastViewModel_About",
+    "translated": "About"
+  },
+  {
+    "key": "PodcastViewModel_Website",
+    "translated": "Website"
+  },
+  {
+    "key": "InformationViewModel_Title",
+    "translated": "Information"
+  },
+  {
+    "key": "InformationViewModel_CreatedBy",
+    "translated": "POC created by"
+  },
+  {
+    "key": "InformationViewModel_JoaoPalma",
+    "translated": "João Palma"
+  },
+  {
+    "key": "InformationViewModel_For",
+    "translated": "For"
+  },
+  {
+    "key": "InformationViewModel_Copyright",
+    "translated": "© 2018"
+  }
+]
