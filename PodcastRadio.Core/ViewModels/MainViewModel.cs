@@ -118,7 +118,7 @@ namespace PodcastRadio.Core.ViewModels
             {
                 var searchedPodcasts = await _podcastService.SearchPodcastAsync(SearchPodcast);
                 var podCasts = ReflectionHelper.ConvertNullToEmpty(searchedPodcasts);
-                podCasts = podCasts.OrderByDescending(x => x.ReleaseDate).ToList();
+                //podCasts = podCasts.OrderByDescending(x => x.ReleaseDate).ToList();
                 PodcastDetail = podCasts;
                 Debug.WriteLine($"PodcastDetail Count: {PodcastDetail.Count}");
             }

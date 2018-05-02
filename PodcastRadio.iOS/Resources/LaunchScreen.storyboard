@@ -21,17 +21,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podcast Radio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSq-sk-y94">
-                                <rect key="frame" x="123.5" y="321.5" width="128.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyQ-cM-bWI">
+                                <rect key="frame" x="110.5" y="323.5" width="153.5" height="20"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radio_app" translatesAutoresizingMaskIntoConstraints="NO" id="fh4-y3-Xbg">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="9NT-ES-vyD"/>
+                                            <constraint firstAttribute="height" constant="20" id="Rlq-TH-JHF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podcast Radio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSq-sk-y94">
+                                        <rect key="frame" x="25" y="-2" width="128.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="fh4-y3-Xbg" firstAttribute="leading" secondItem="lyQ-cM-bWI" secondAttribute="leading" id="26i-0l-uqZ"/>
+                                    <constraint firstItem="nSq-sk-y94" firstAttribute="centerY" secondItem="fh4-y3-Xbg" secondAttribute="centerY" id="Ecd-lc-8mD"/>
+                                    <constraint firstItem="fh4-y3-Xbg" firstAttribute="centerY" secondItem="lyQ-cM-bWI" secondAttribute="centerY" id="PC3-Bl-vTG"/>
+                                    <constraint firstAttribute="bottom" secondItem="fh4-y3-Xbg" secondAttribute="bottom" id="aDB-0Z-1MQ"/>
+                                    <constraint firstItem="fh4-y3-Xbg" firstAttribute="top" secondItem="lyQ-cM-bWI" secondAttribute="top" id="bc3-rH-gLm"/>
+                                    <constraint firstAttribute="trailing" secondItem="nSq-sk-y94" secondAttribute="trailing" id="key-1b-xcI"/>
+                                    <constraint firstItem="nSq-sk-y94" firstAttribute="leading" secondItem="fh4-y3-Xbg" secondAttribute="trailing" constant="5" id="sA0-jK-REJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nSq-sk-y94" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="IEp-DO-9CP"/>
-                            <constraint firstItem="nSq-sk-y94" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="li0-pI-2s4"/>
+                            <constraint firstItem="lyQ-cM-bWI" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gIK-3O-u6X"/>
+                            <constraint firstItem="lyQ-cM-bWI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="pC7-v6-Wve"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,4 +62,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="radio_app" width="24" height="24"/>
+    </resources>
 </document>

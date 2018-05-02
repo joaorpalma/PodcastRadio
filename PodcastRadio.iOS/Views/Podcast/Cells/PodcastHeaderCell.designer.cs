@@ -9,23 +9,23 @@ using System.CodeDom.Compiler;
 
 namespace PodcastRadio.iOS.Views.Podcast.Cells
 {
-	[Register ("ConnectionCell")]
-	partial class ConnectionCell
+	[Register ("PodcastHeaderCell")]
+	partial class PodcastHeaderCell
 	{
 		[Outlet]
-		UIKit.UIButton _button { get; set; }
-
-		[Outlet]
-		UIKit.UIImageView _iconImage { get; set; }
-
-		[Outlet]
 		UIKit.UILabel _nameLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel _playLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel _trackLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (_iconImage != null) {
-				_iconImage.Dispose ();
-				_iconImage = null;
+			if (_trackLabel != null) {
+				_trackLabel.Dispose ();
+				_trackLabel = null;
 			}
 
 			if (_nameLabel != null) {
@@ -33,9 +33,9 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
 				_nameLabel = null;
 			}
 
-			if (_button != null) {
-				_button.Dispose ();
-				_button = null;
+			if (_playLabel != null) {
+				_playLabel.Dispose ();
+				_playLabel = null;
 			}
 		}
 	}

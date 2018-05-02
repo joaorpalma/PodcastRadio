@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="cxk-wN-pdQ" customClass="PodcastHeaderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYL-gn-KzA">
+                        <rect key="frame" x="20" y="12" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tbe-eF-7KB">
+                        <rect key="frame" x="94" y="12" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gII-5e-tmA">
+                        <rect key="frame" x="251" y="12" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFd-yR-JZT">
+                        <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Juo-fr-JGU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="gII-5e-tmA" firstAttribute="centerY" secondItem="Tbe-eF-7KB" secondAttribute="centerY" id="3L6-vf-AER"/>
+                    <constraint firstAttribute="bottom" secondItem="lFd-yR-JZT" secondAttribute="bottom" id="7ex-Ia-3AS"/>
+                    <constraint firstItem="Tbe-eF-7KB" firstAttribute="leading" secondItem="cYL-gn-KzA" secondAttribute="trailing" constant="32" id="Ffs-TF-Wgo"/>
+                    <constraint firstItem="cYL-gn-KzA" firstAttribute="centerY" secondItem="YTl-1W-gDM" secondAttribute="centerY" id="G5c-Yo-Nza"/>
+                    <constraint firstAttribute="trailing" secondItem="lFd-yR-JZT" secondAttribute="trailing" id="Mtg-d0-yku"/>
+                    <constraint firstItem="cYL-gn-KzA" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="20" id="RDZ-Qy-jaD"/>
+                    <constraint firstAttribute="trailing" secondItem="gII-5e-tmA" secondAttribute="trailing" constant="27" id="Sdp-pe-XJY"/>
+                    <constraint firstItem="lFd-yR-JZT" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" id="iaZ-Jz-Q8x"/>
+                    <constraint firstItem="Tbe-eF-7KB" firstAttribute="centerY" secondItem="cYL-gn-KzA" secondAttribute="centerY" id="zAR-Vz-K8m"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="_nameLabel" destination="Tbe-eF-7KB" id="m9t-aF-wj4"/>
+                <outlet property="_playLabel" destination="gII-5e-tmA" id="Epn-Lj-NoG"/>
+                <outlet property="_trackLabel" destination="cYL-gn-KzA" id="RLO-lY-NMw"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

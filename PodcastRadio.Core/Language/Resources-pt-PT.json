@@ -36,16 +36,16 @@
     "translated": "Play"
   },
   {
-    "key": "PodcastViewModel_minutes",
-    "translated": "min"
+    "key": "PodcastViewModel_Duration",
+    "translated": "Duração"
   },
   {
-    "key": "PodcastViewModel_ToFinish",
-    "translated": "para terminar"
+    "key": "PodcastViewModel_Playing",
+    "translated": "A tocar..."
   },
   {
     "key": "PodcastViewModel_Released",
-    "translated": "Lançado"
+    "translated": "Lançado:"
   },
   {
     "key": "PodcastViewModel_About",
