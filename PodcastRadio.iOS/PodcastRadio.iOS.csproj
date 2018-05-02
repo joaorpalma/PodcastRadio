@@ -124,6 +124,12 @@
     <Reference Include="FFImageLoading.Transformations">
       <HintPath>..\packages\Xamarin.FFImageLoading.Transformations.2.3.6\lib\Xamarin.iOS10\FFImageLoading.Transformations.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.MediaManager.Abstractions">
+      <HintPath>..\packages\Plugin.MediaManager.0.4.5\lib\Xamarin.iOS10\Plugin.MediaManager.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager">
+      <HintPath>..\packages\Plugin.MediaManager.0.4.5\lib\Xamarin.iOS10\Plugin.MediaManager.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -159,6 +165,16 @@
     <ImageAsset Include="Resources\Assets.xcassets\podcast_stop.imageset\ic_stop.png" />
     <ImageAsset Include="Resources\Assets.xcassets\podcast_stop.imageset\ic_stop_2x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\podcast_stop.imageset\ic_stop_3x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_pause.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_pause.imageset\ic_pause.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_pause.imageset\ic_pause_2x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\podcast_pause.imageset\ic_pause_3x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\radioapp%402x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\AppIcon.appiconset\radioapp%403x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\radio_app.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\radio_app.imageset\ic_radio.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\radio_app.imageset\ic_radio_2x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\radio_app.imageset\ic_radio_3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -184,6 +200,8 @@
     <Folder Include="Resources\Assets.xcassets\podcast_play.imageset\" />
     <Folder Include="Resources\Assets.xcassets\podcast_stop.imageset\" />
     <Folder Include="Views\Podcast\Cells\" />
+    <Folder Include="Resources\Assets.xcassets\podcast_pause.imageset\" />
+    <Folder Include="Resources\Assets.xcassets\radio_app.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -197,6 +215,7 @@
     <InterfaceDefinition Include="Views\Podcast\Cells\EpisodeCell.xib" />
     <InterfaceDefinition Include="Views\Podcast\Cells\AboutCell.xib" />
     <InterfaceDefinition Include="Views\Podcast\Cells\ConnectionCell.xib" />
+    <InterfaceDefinition Include="Views\Podcast\Cells\PodcastHeaderCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -261,6 +280,11 @@
     <Compile Include="Views\Podcast\Cells\ConnectionCell.designer.cs">
       <DependentUpon>ConnectionCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Podcast\Cells\PodcastHeaderCell.cs" />
+    <Compile Include="Views\Podcast\Cells\PodcastHeaderCell.designer.cs">
+      <DependentUpon>PodcastHeaderCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RadioApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PodcastRadio.Core\PodcastRadio.Core.csproj">

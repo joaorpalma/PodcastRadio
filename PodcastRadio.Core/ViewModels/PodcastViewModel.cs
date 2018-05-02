@@ -19,6 +19,7 @@ namespace PodcastRadio.Core.ViewModels
         private readonly IPodcastService _podcastService;
         private readonly IDialogService _dialogService;
         private readonly IConnectService _connectService;
+        private readonly IRadioPlayer _radioPlayer;
         private Episode _lastPlayingEpisode;
         public string PodcastName { get; set; }
 
@@ -32,14 +33,18 @@ namespace PodcastRadio.Core.ViewModels
         private XPCommand _openSharePodcastCommand;
         public XPCommand OpenSharePodcastCommand => _openSharePodcastCommand ?? (_openSharePodcastCommand = new XPCommand(() => OpenSharePodcast()));
 
+        private XPCommand<string> _openWebsiteCommand;
+        public XPCommand<string> OpenWebsiteCommand => _openWebsiteCommand ?? (_openWebsiteCommand = new XPCommand<string>((link) => OpenWebsite(link)));
+
         private XPCommand<Episode> _playEpisodeCommand;
         public XPCommand<Episode> PlayEpisodeCommand => _playEpisodeCommand ?? (_playEpisodeCommand = new XPCommand<Episode>(async (episode) => await PlayEpisode(episode), CanExecute));
 
-        public PodcastViewModel(IPodcastService podcastService, IDialogService dialogService, IConnectService connectService)
+        public PodcastViewModel(IPodcastService podcastService, IDialogService dialogService, IConnectService connectService, IRadioPlayer radioPlayer)
         {
             _podcastService = podcastService;
             _dialogService = dialogService;
             _connectService = connectService;
+            _radioPlayer = radioPlayer;
         }
 
         protected override void Prepare(PodcastModel podcast)
@@ -93,9 +98,20 @@ namespace PodcastRadio.Core.ViewModels
 
         private async Task PlayEpisode(Episode episode)
         {
+            _dialogService.ShowLoading();
+
             if(episode.IsPlaying)
             {
                 episode.IsPlaying = false;
+
+                try
+                {
+                    await _radioPlayer.Pause();
+                }
+                catch (Exception ex)
+                {
+                    Ui.Handle(ex as dynamic);
+                }
             }
             else
             {
@@ -104,9 +120,26 @@ namespace PodcastRadio.Core.ViewModels
                 
                 _lastPlayingEpisode = episode;
                 episode.IsPlaying = true;
-                //Code to play podcast
+
+                if (!string.IsNullOrEmpty(episode.AudioLink))
+                {
+                    try
+                    {
+                        await _radioPlayer.Play(episode.AudioLink);
+                    }
+                    catch (Exception ex)
+                    {
+                        Ui.Handle(ex as dynamic);
+                    }
+                }
             }
+            _dialogService.HideLoading();
             RaisePropertyChanged(nameof(Podcast));
+        }
+
+        private void OpenWebsite(string link)
+        {
+            _connectService.OpenWebLink(link);
         }
 
         private bool CanExecute(object obj) => !IsBusy;
@@ -124,8 +157,7 @@ namespace PodcastRadio.Core.ViewModels
         private string _aboutLabel => L10N.Localize("PodcastViewModel_About");
         private string _websiteLabel => L10N.Localize("PodcastViewModel_Website");
 
-
-        private void SetL10NResources()
+		private void SetL10NResources()
         {
             LocationResources.Add("TrackLabel", _trackLabel);
             LocationResources.Add("NameDurationLabel", _nameDurationLabel);

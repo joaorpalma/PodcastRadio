@@ -31,15 +31,23 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axm-oc-R0t">
+                        <rect key="frame" x="20" y="2" width="82" height="39.5"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="wfn-k1-8ZL" firstAttribute="leading" secondItem="ri3-Sd-9RQ" secondAttribute="trailing" constant="15" id="3za-PX-wmc"/>
+                    <constraint firstItem="axm-oc-R0t" firstAttribute="leading" secondItem="ri3-Sd-9RQ" secondAttribute="leading" id="48o-mp-4ge"/>
                     <constraint firstItem="ri3-Sd-9RQ" firstAttribute="centerY" secondItem="YTl-1W-gDM" secondAttribute="centerY" id="ATG-ld-5ZY"/>
                     <constraint firstItem="ri3-Sd-9RQ" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="20" id="PKJ-o8-3GS"/>
                     <constraint firstItem="wfn-k1-8ZL" firstAttribute="centerY" secondItem="ri3-Sd-9RQ" secondAttribute="centerY" id="bro-M9-TKS"/>
+                    <constraint firstItem="axm-oc-R0t" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="2" id="fag-l8-dX9"/>
+                    <constraint firstAttribute="bottom" secondItem="axm-oc-R0t" secondAttribute="bottom" constant="2" id="mva-JL-Kn6"/>
+                    <constraint firstItem="axm-oc-R0t" firstAttribute="trailing" secondItem="wfn-k1-8ZL" secondAttribute="trailing" id="rtI-Wc-OAb"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="_button" destination="axm-oc-R0t" id="700-nu-Orq"/>
                 <outlet property="_iconImage" destination="ri3-Sd-9RQ" id="XrT-FA-agF"/>
                 <outlet property="_nameLabel" destination="wfn-k1-8ZL" id="jFU-aU-J0W"/>
             </connections>

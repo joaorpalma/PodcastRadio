@@ -54,7 +54,7 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
             if (isPlaying)
             {
                 UILabelExtensions.SetupLabelAppearance(_durationLabel, _locationResources["PlayingLabel"], UIColor.LightGray, 12f, UIFontWeight.Regular);
-                _playImage.Image = UIImage.FromBundle("podcast_stop");
+                _playImage.Image = UIImage.FromBundle("podcast_pause");
             }
             else
             {
@@ -63,7 +63,7 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
 
                 string duration = "";
 
-                if (_episode?.Duration != null || _episode.Duration == "")
+                if (!string.IsNullOrEmpty(_episode?.Duration))
                     duration = $"{_episode.Duration} {_locationResources["DurationLabel"]} | ";
 
                 duration =$"{duration}{_locationResources["ReleasedLabel"]} {resultDate[0]} {resultDate[1]}";

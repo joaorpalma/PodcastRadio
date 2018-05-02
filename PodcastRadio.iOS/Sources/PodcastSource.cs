@@ -24,6 +24,7 @@ namespace PodcastRadio.iOS.Sources
         private PodcastChannel _podcast;
         private Dictionary<string, string> _locationResources = new Dictionary<string, string>();
         public event EventHandler<Episode> OnPlayPressEvent;
+        public event EventHandler<string> OnWebSiteClickEvent;
 
         public PodcastSource(UITableView tableView, PodcastChannel podcast, Dictionary<string, string> locationResources)
         {
@@ -33,6 +34,7 @@ namespace PodcastRadio.iOS.Sources
             tableView.RegisterNibForCellReuse(EpisodeCell.Nib, EpisodeCell.Key);
             tableView.RegisterNibForCellReuse(ConnectionCell.Nib, ConnectionCell.Key);
             tableView.RegisterNibForCellReuse(AboutCell.Nib, AboutCell.Key);
+            tableView.RegisterNibForCellReuse(PodcastHeaderCell.Nib, PodcastHeaderCell.Key);
         }
 
 		public override UIView GetViewForHeader(UITableView tableView, nint section)
@@ -46,6 +48,14 @@ namespace PodcastRadio.iOS.Sources
                 cell.BackgroundColor = Colors.White;
                 return cell;
             }
+
+            if (section == (int)Section.Episodes)
+            {
+                var cell = tableView.DequeueReusableCell(PodcastHeaderCell.Key) as PodcastHeaderCell;
+                cell.Configure(_locationResources);
+                return cell;
+            }
+
             return null;
 		}
 
@@ -71,7 +81,7 @@ namespace PodcastRadio.iOS.Sources
                 
                 case(int)Section.Connections:
                     var connectioncell = tableView.DequeueReusableCell(ConnectionCell.Key) as ConnectionCell;
-                    connectioncell.Configure(_podcast.Link);
+                    connectioncell.Configure(_podcast.Link, _locationResources["WebsiteLabel"], OnWebSiteClickEvent);
                     connectioncell.SelectionStyle = UITableViewCellSelectionStyle.None;
                     connectioncell.LayoutMargins = UIEdgeInsets.Zero;
                     cell = connectioncell;
@@ -116,7 +126,13 @@ namespace PodcastRadio.iOS.Sources
 
         public override nfloat GetHeightForHeader(UITableView tableView, nint section)
         {
-            return section == (int)Section.Connections ? LocalConstants.Podcast_TitleCell : 0;
+
+            switch (section)
+            {
+                case (int)Section.Episodes: return _podcast.Episodes.Count > 0 ? LocalConstants.Podcast_Header : 0;
+                case (int)Section.Connections: return LocalConstants.Podcast_TitleCell;
+                default: return 0;
+            }
         }
 
         public override nfloat GetHeightForRow(UITableView tableView, NSIndexPath indexPath)

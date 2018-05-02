@@ -51,12 +51,21 @@ namespace PodcastRadio.iOS.Views.Podcast
             podcastTableHeader.Frame = _tableView.TableHeaderView.Frame;
             _tableView.TableHeaderView.AddSubview(podcastTableHeader);
 
-            source.OnPlayPressEvent -= OnSource_OnPlayPressEvent;
-            source.OnPlayPressEvent += OnSource_OnPlayPressEvent;
+            source.OnPlayPressEvent -= OnSource_PlayPressEvent;
+            source.OnPlayPressEvent += OnSource_PlayPressEvent;
+
+            source.OnWebSiteClickEvent -= OnSource_WebSiteClickEvent;
+            source.OnWebSiteClickEvent += OnSource_WebSiteClickEvent;
+
             _tableView.ReloadData();
         }
 
-        private void OnSource_OnPlayPressEvent(object sender, Episode episode)
+        private void OnSource_WebSiteClickEvent(object sender, string link)
+        {
+            ViewModel.OpenWebsiteCommand.Execute(link);
+        }
+
+        private void OnSource_PlayPressEvent(object sender, Episode episode)
         {
             if (ViewModel.PlayEpisodeCommand.CanExecute(null))
                 ViewModel.PlayEpisodeCommand.Execute(episode);
