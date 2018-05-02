@@ -19,7 +19,6 @@ namespace PodcastRadio.iOS.Views.Podcast
         {
             base.ViewDidLoad();
             SetupView();
-
             ViewModel.PropertyChanged -= ViewModel_PropertyChanged;
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
         }

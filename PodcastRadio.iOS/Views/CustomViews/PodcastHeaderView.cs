@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
+using FFImageLoading;
+using FFImageLoading.Transformations;
 using Foundation;
 using PodcastRadio.iOS.Helpers;
-using SDWebImage;
 using UIKit;
 
 namespace PodcastRadio.iOS.Views.CustomViews
@@ -19,7 +20,8 @@ namespace PodcastRadio.iOS.Views.CustomViews
 
         public void Configure(string image)
         {
-            _backgroundImage.SetImage(new NSUrl(image), null, SDWebImageOptions.RetryFailed);
+            ImageService.Instance.LoadUrl(image).Retry(3, 200).Transform(new BlurredTransformation(5)).Into(_backgroundImage);
+            ImageService.Instance.LoadUrl(image).Retry(3, 200).Transform(new CircleTransformation()).Into(_frontImage); 
         }
     }
 }

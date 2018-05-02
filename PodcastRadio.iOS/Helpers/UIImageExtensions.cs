@@ -3,8 +3,8 @@ using System.Drawing;
 using CoreAnimation;
 using CoreGraphics;
 using CoreImage;
+using FFImageLoading;
 using Foundation;
-using SDWebImage;
 using UIKit;
 
 namespace PodcastRadio.iOS.Helpers
@@ -18,7 +18,7 @@ namespace PodcastRadio.iOS.Helpers
             if (country.Length == 3)
                 country = country.Remove(country.Length - 1);
             
-            imageView.SetImage(new NSUrl($"http://www.geonames.org/flags/x/{country}.gif"), null, SDWebImageOptions.RetryFailed);
+            ImageService.Instance.LoadUrl($"http://www.geonames.org/flags/x/{country}.gif").Retry(3, 200).Into(imageView); 
         }
     }
 }

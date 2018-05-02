@@ -16,6 +16,9 @@ namespace PodcastRadio.iOS.Views.CustomViews
 
 		[Outlet]
 		UIKit.UIImageView _backgroundImage { get; set; }
+
+		[Outlet]
+		UIKit.UIImageView _frontImage { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -27,6 +30,11 @@ namespace PodcastRadio.iOS.Views.CustomViews
 			if (_backgroundImage != null) {
 				_backgroundImage.Dispose ();
 				_backgroundImage = null;
+			}
+
+			if (_frontImage != null) {
+				_frontImage.Dispose ();
+				_frontImage = null;
 			}
 		}
 	}

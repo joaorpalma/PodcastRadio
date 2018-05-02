@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using CoreGraphics;
+using FFImageLoading;
 using Foundation;
 using PodcastRadio.Core.Helpers;
 using PodcastRadio.Core.Language;
 using PodcastRadio.Core.Models.DTOs;
 using PodcastRadio.iOS.Helpers;
-using SDWebImage;
 using UIKit;
 
 namespace PodcastRadio.iOS.Views.Main.Cells
@@ -24,7 +24,7 @@ namespace PodcastRadio.iOS.Views.Main.Cells
             DateTime parsedDate = DateTime.Parse(podcast?.ReleaseDate ?? default(DateTime).ToString());
             var resultDate = TimeUtils.SetMonthAndYearFormat(parsedDate);
 
-            _logoImage.SetImage(new NSUrl(podcast?.ArtworkSmall), null, SDWebImageOptions.RetryFailed);
+            ImageService.Instance.LoadUrl(podcast?.ArtworkSmall).Retry(3, 200).Into(_logoImage); 
             _logoImage.Layer.CornerRadius = 12;
             _logoImage.Layer.MasksToBounds = true;
 

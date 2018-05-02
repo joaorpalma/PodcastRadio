@@ -55,7 +55,6 @@ namespace PodcastRadio.iOS.Sources
 
             switch (indexPath.Section)
             {
-
                 case (int)Section.Episodes:
                     var episodecell = tableView.DequeueReusableCell(EpisodeCell.Key) as EpisodeCell;
                     episodecell.Configure(_podcast.Episodes[indexPath.Row], _locationResources, OnPlayPressEvent);
