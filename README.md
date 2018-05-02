@@ -10,4 +10,4 @@
 - Plugin.Share
 - Xam.Plugin.Connectivity
 - xUnit
-- SDWebImage
+- FFImageLoading
