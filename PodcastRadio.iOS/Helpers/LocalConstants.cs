@@ -8,5 +8,6 @@ namespace PodcastRadio.iOS.Helpers
         public static nfloat Podcast_TitleCell => 50;
         public static nfloat Podcast_Episode => 55;
         public static nfloat Podcast_Connections => 40;
+        public static nfloat About => 300;
     }
 }

@@ -1,8 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
+using CoreGraphics;
+using PodcastRadio.Core.Models;
 using PodcastRadio.Core.ViewModels;
 using PodcastRadio.iOS.Helpers;
+using PodcastRadio.iOS.Sources;
 using PodcastRadio.iOS.Views.Base;
+using PodcastRadio.iOS.Views.CustomViews;
 using UIKit;
 
 namespace PodcastRadio.iOS.Views.Podcast
@@ -27,6 +31,7 @@ namespace PodcastRadio.iOS.Views.Podcast
                 case nameof(ViewModel.Podcast):
                     SetTableView();
                     break;
+
                 default:
                     break;
             }
@@ -34,7 +39,28 @@ namespace PodcastRadio.iOS.Views.Podcast
 
         private void SetTableView()
         {
-            throw new NotImplementedException();
+            var source = new PodcastSource(_tableView, ViewModel.Podcast.Channel, ViewModel.LocationResources);
+            _tableView.Source = source;
+            _tableView.SeparatorStyle = UITableViewCellSeparatorStyle.None;
+            _tableView.TableHeaderView = new UIView(new CGRect(0, 0, 0, PodcastHeaderView.Height));
+
+            //_tableView.RowHeight = UITableView.AutomaticDimension;
+            //_tableView.EstimatedRowHeight = 50f; 
+
+            var podcastTableHeader = PodcastHeaderView.Create();
+            podcastTableHeader.Configure(ViewModel.Podcast.ArtworkLarge);
+            podcastTableHeader.Frame = _tableView.TableHeaderView.Frame;
+            _tableView.TableHeaderView.AddSubview(podcastTableHeader);
+
+            source.OnPlayPressEvent -= OnSource_OnPlayPressEvent;
+            source.OnPlayPressEvent += OnSource_OnPlayPressEvent;
+            _tableView.ReloadData();
+        }
+
+        private void OnSource_OnPlayPressEvent(object sender, Episode episode)
+        {
+            if (ViewModel.PlayEpisodeCommand.CanExecute(null))
+                ViewModel.PlayEpisodeCommand.Execute(episode);
         }
 
         private void SetupView()
@@ -49,6 +75,7 @@ namespace PodcastRadio.iOS.Views.Podcast
 		{
             base.ViewWillAppear(animated);
             this.Title = ViewModel.PodcastName;
+            _tableView.ReloadData();
 		}
 
 		private void SharePodcast(object sender, EventArgs e)

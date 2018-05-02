@@ -8,8 +8,8 @@ namespace PodcastRadio.Core.Helpers
             int seconds = 0;
             Int32.TryParse(value, out seconds);
             TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
-            string time = timeSpan.ToString(@"hh\:mm\:ss\:fff");
-            return time;
+            string time = timeSpan.ToString(@"hh\:mm\:ss");
+            return $"{time} min";
         }
     }
 }

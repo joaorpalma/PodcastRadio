@@ -36,8 +36,8 @@
     "translated": "Play"
   },
   {
-    "key": "PodcastViewModel_minutes",
-    "translated": "min"
+    "key": "PodcastViewModel_Duration",
+    "translated": "Duration"
   },
   {
     "key": "PodcastViewModel_Playing",  

@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDA-cb-8Ca">
-                        <rect key="frame" x="20" y="15" width="307" height="20.5"/>
+                        <rect key="frame" x="20" y="5" width="307" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -28,7 +28,7 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="BDA-cb-8Ca" secondAttribute="trailing" constant="20" id="5cE-Zg-zrK"/>
                     <constraint firstItem="BDA-cb-8Ca" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leading" constant="20" id="czT-K4-ZNc"/>
-                    <constraint firstItem="BDA-cb-8Ca" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="15" id="tGm-bZ-azK"/>
+                    <constraint firstItem="BDA-cb-8Ca" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="top" constant="5" id="tGm-bZ-azK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

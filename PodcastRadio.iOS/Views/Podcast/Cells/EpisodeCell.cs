@@ -26,6 +26,7 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
             _locationResources = locationResources;
 
             UILabelExtensions.SetupLabelAppearance(_nameLabel, episode.Title, Colors.Black, 14f, UIFontWeight.Semibold);
+            UILabelExtensions.SetupLabelAppearance(_trackLabel, episode.EpisodeNumber, Colors.Black, 16f, UIFontWeight.Semibold);
 
             SetEpisode(episode.IsPlaying);
 
@@ -45,16 +46,12 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
 
         private void OnplayButton_TouchUpInside(object sender, EventArgs e)
         {
-            if(_episode.IsPlaying)
-            {
-                SetEpisode(false);
-                _playPressed?.Invoke(this, null);
-            }
-            else
-            { 
-                SetEpisode(true);
-                _playPressed?.Invoke(this, _episode);
-            }
+            //if(_episode.IsPlaying)
+            //    SetEpisode(false);
+            //else
+                //SetEpisode(true);
+            
+            _playPressed?.Invoke(this, _episode);
         }
 
         private void SetEpisode(bool isPlaying)
@@ -68,8 +65,8 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
             {
                 DateTime parsedDate = DateTime.Parse(_episode?.PublicationDate ?? default(DateTime).ToString());
                 var resultDate = TimeUtils.SetMonthAndYearFormat(parsedDate);
-                string duration = $"{TimeHelper.SecondsToDuration(_episode.Duration)} | {_locationResources["ReleaseLabel"]} {resultDate}";
-                UILabelExtensions.SetupLabelAppearance(_durationLabel, _locationResources["PlayingLabel"], UIColor.LightGray, 12f, UIFontWeight.Regular);
+                string duration = $"{_episode.Duration} {_locationResources["DurationLabel"]} | {_locationResources["ReleasedLabel"]} {resultDate[0]} {resultDate[1]}";
+                UILabelExtensions.SetupLabelAppearance(_durationLabel, duration, UIColor.LightGray, 12f, UIFontWeight.Regular);
                 _playImage.Image = UIImage.FromBundle("podcast_play");
             }
         }
