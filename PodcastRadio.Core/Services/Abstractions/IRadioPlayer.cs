@@ -8,6 +8,5 @@ namespace PodcastRadio.Core.Services.Abstractions
         Task Play(string link);
         Task Pause();
         Task UnPause();
-        Task Stop();
     }
 }

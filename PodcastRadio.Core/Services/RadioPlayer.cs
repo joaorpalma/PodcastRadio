@@ -21,10 +21,5 @@ namespace PodcastRadio.Core.Services
         {
             await CrossMediaManager.Current.Pause();
         }
-
-        public async Task Stop()
-        {
-            await CrossMediaManager.Current.Stop();
-        }
     }
 }

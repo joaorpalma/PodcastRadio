@@ -99,42 +99,43 @@ namespace PodcastRadio.Core.ViewModels
         private async Task PlayEpisode(Episode episode)
         {
             _dialogService.ShowLoading();
-
-            if(episode.IsPlaying)
+            IsBusy = true;
+            try
             {
-                episode.IsPlaying = false;
-
-                try
+                if (episode == _lastPlayingEpisode)
                 {
-                    await _radioPlayer.Pause();
-                }
-                catch (Exception ex)
-                {
-                    Ui.Handle(ex as dynamic);
-                }
-            }
-            else
-            {
-                if (_lastPlayingEpisode != null)
-                    _lastPlayingEpisode.IsPlaying = false;
-                
-                _lastPlayingEpisode = episode;
-                episode.IsPlaying = true;
-
-                if (!string.IsNullOrEmpty(episode.AudioLink))
-                {
-                    try
+                    if (episode.IsPlaying == false)
                     {
-                        await _radioPlayer.Play(episode.AudioLink);
+                        episode.IsPlaying = true;
+                        await _radioPlayer.UnPause();
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        Ui.Handle(ex as dynamic);
+                        episode.IsPlaying = false;
+                        await _radioPlayer.Pause();
                     }
                 }
+                else
+                {
+                    if (_lastPlayingEpisode != null)
+                        _lastPlayingEpisode.IsPlaying = false;
+
+                    episode.IsPlaying = true;
+                    await _radioPlayer.Play(episode.AudioLink);
+
+                    _lastPlayingEpisode = episode;
+                }
             }
-            _dialogService.HideLoading();
-            RaisePropertyChanged(nameof(Podcast));
+            catch (Exception ex)
+            {
+                Ui.Handle(ex as dynamic);
+            }
+            finally
+            {
+                _dialogService.HideLoading();
+                IsBusy = false;
+                RaisePropertyChanged(nameof(Podcast));
+            }
         }
 
         private void OpenWebsite(string link)
