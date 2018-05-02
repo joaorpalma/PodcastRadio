@@ -39,6 +39,7 @@ namespace PodcastRadio.iOS.Sources
         {
             var podcastCell = tableView.DequeueReusableCell(PodcastCell.Key, indexPath) as PodcastCell;
             podcastCell.Configure(_podcastDetail[(indexPath.Row)], _locationResources);
+            podcastCell.SelectionStyle = UITableViewCellSelectionStyle.None;
             return podcastCell;
         }
 

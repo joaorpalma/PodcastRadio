@@ -64,9 +64,16 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
                 string duration = "";
 
                 if (!string.IsNullOrEmpty(_episode?.Duration))
-                    duration = $"{_episode.Duration} {_locationResources["DurationLabel"]} | ";
+                {
+                    if (_episode.Duration.Contains(":"))
+                        duration = _episode.Duration;
+                    else
+                        duration = TimeHelper.SecondsToDuration(_episode.Duration);
 
-                duration =$"{duration}{_locationResources["ReleasedLabel"]} {resultDate[0]} {resultDate[1]}";
+                    duration += $" {_locationResources["DurationLabel"]} | ";
+                }
+
+                duration = $"{duration}{_locationResources["ReleasedLabel"]} {resultDate[0]} {resultDate[1]}";
                 UILabelExtensions.SetupLabelAppearance(_durationLabel, duration, UIColor.LightGray, 12f, UIFontWeight.Regular);
                 
 
