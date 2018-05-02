@@ -61,20 +61,17 @@ namespace PodcastRadio.Core.Services
 
                 foreach (var item in xdoc.Descendants("item"))
                 {
-                    if (item.Element(itunes + "episodeType")?.Value == "full")
+                    Episode episode = new Episode
                     {
-                        Episode episode = new Episode
-                        {
-                            Title = item.Element("title")?.Value,
-                            EpisodeNumber = item.Element(itunes + "episode")?.Value,
-                            Duration = item.Element(itunes + "duration")?.Value,
-                            Explicit = item.Element(itunes + "explicit")?.Value,
-                            AudioLink = item.Element("enclosure")?.Attribute("url")?.Value,
-                            PublicationDate = item.Element("pubDate")?.Value
-                        };
+                        Title = item.Element("title")?.Value,
+                        EpisodeNumber = item.Element(itunes + "episode")?.Value,
+                        Duration = item.Element(itunes + "duration")?.Value,
+                        Explicit = item.Element(itunes + "explicit")?.Value,
+                        AudioLink = item.Element("enclosure")?.Attribute("url")?.Value,
+                        PublicationDate = item.Element("pubDate")?.Value
+                    };
 
-                        podcastChannel.Episodes.Add(episode);
-                    }
+                    podcastChannel.Episodes.Add(episode);
                 }
 
                 podcastChannel.Link = xdoc.Root.Element("channel").Element("link")?.Value;

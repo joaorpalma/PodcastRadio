@@ -46,11 +46,6 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
 
         private void OnplayButton_TouchUpInside(object sender, EventArgs e)
         {
-            //if(_episode.IsPlaying)
-            //    SetEpisode(false);
-            //else
-                //SetEpisode(true);
-            
             _playPressed?.Invoke(this, _episode);
         }
 
@@ -65,8 +60,16 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
             {
                 DateTime parsedDate = DateTime.Parse(_episode?.PublicationDate ?? default(DateTime).ToString());
                 var resultDate = TimeUtils.SetMonthAndYearFormat(parsedDate);
-                string duration = $"{_episode.Duration} {_locationResources["DurationLabel"]} | {_locationResources["ReleasedLabel"]} {resultDate[0]} {resultDate[1]}";
+
+                string duration = "";
+
+                if (_episode?.Duration != null || _episode.Duration == "")
+                    duration = $"{_episode.Duration} {_locationResources["DurationLabel"]} | ";
+
+                duration =$"{duration}{_locationResources["ReleasedLabel"]} {resultDate[0]} {resultDate[1]}";
                 UILabelExtensions.SetupLabelAppearance(_durationLabel, duration, UIColor.LightGray, 12f, UIFontWeight.Regular);
+                
+
                 _playImage.Image = UIImage.FromBundle("podcast_play");
             }
         }
