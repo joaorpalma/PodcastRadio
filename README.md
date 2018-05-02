@@ -10,10 +10,4 @@
 - Plugin.Share
 - Xam.Plugin.Connectivity
 - xUnit
-- SDWebImage
-
-# Bugs
-
-#### Itunes API Search
-
-Every podcast search comes with "country":"USA" even if the podcast is from other country.
+- FFImageLoading
