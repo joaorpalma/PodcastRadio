@@ -3,12 +3,12 @@ namespace PodcastRadio.Core.Helpers
 {
     public static class TimeHelper
     {
-        public static string SecondsToDuration(int seconds)
+        public static string SecondsToDuration(string value)
         {
-            if (seconds < 0) seconds = 0;
+            int seconds = 0;
+            Int32.TryParse(value, out seconds);
             TimeSpan timeSpan = TimeSpan.FromSeconds(seconds);
-            string time = timeSpan.ToString(@"hh\:mm\:ss\:fff");
-            return time;
+            return timeSpan.ToString(@"hh\:mm\:ss");
         }
     }
 }

@@ -11,3 +11,4 @@
 - Xam.Plugin.Connectivity
 - xUnit
 - FFImageLoading
+- Plugin.MediaManager
