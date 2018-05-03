@@ -67,13 +67,21 @@ namespace PodcastRadio.Core.ViewModels
                     var podcast = Podcast;
                     _podcast = null;
 
-                    podcast.Channel = await _podcastService.GetPodcastFeedAsync(podcast?.FeedUrl);
-                    podcast.Channel = ReflectionHelper.ConvertNullToEmpty(podcast.Channel);
-                    //podcast.Channel.Episodes = podcast.Channel.Episodes.OrderByDescending(x => x.EpisodeNumber).ToList();
+                    if (!string.IsNullOrEmpty(podcast.FeedUrl))
+                    {
+                        podcast.Channel = await _podcastService.GetPodcastFeedAsync(podcast.FeedUrl);
+                        podcast.Channel = ReflectionHelper.ConvertNullToEmpty(podcast.Channel);
+                        //podcast.Channel.Episodes = podcast.Channel.Episodes.OrderByDescending(x => x.EpisodeNumber).ToList();
 
-                    Podcast = podcast;
+                        Podcast = podcast;
 
-                    Debug.WriteLine($"Number of tracks: {Podcast.NumberTracks}, Count: {podcast.Channel.Episodes.Count}");
+                        Debug.WriteLine($"Number of tracks: {Podcast.NumberTracks}, Count: {podcast.Channel.Episodes.Count}");
+                    }
+                    else
+                    {
+                        //add some error message...
+                        await NavService.Close<PodcastViewModel>();
+                    }
                 }
                 catch (Exception ex)
                 {
