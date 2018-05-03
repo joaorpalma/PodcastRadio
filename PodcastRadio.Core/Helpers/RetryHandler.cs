@@ -17,6 +17,7 @@ namespace PodcastRadio.Core.Helpers
         {
             for (int i = 0; i < MaxRetries; i++)
             {
+                Debug.Write($"RetryHandler try number: {i} \n");
                 var response = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
 
                 if (response.IsSuccessStatusCode) 

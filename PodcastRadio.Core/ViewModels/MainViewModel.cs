@@ -76,6 +76,11 @@ namespace PodcastRadio.Core.ViewModels
                 foreach (Podcast podcast in _podcastsGUID)
                 {
                     string podGUID = RegexHelper.GetPodcastId(podcast.PodcastGUID);
+                    Debug.WriteLine($"{podGUID} \n");
+
+                    if(!podGUID.All(char.IsDigit))
+                        continue;
+
                     var pcDetail = await _podcastService.GetPodcastDetailAsync(podGUID);
                     var podCast = ReflectionHelper.ConvertNullToEmpty(pcDetail[0]);
 
