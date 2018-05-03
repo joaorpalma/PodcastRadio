@@ -166,6 +166,7 @@ namespace PodcastRadio.Core.ViewModels
 
         public string Title => L10N.Localize("MainViewModel_Title");
         public string Search => L10N.Localize("MainViewModel_Search");
+        public string NoResultsLabel => L10N.Localize("MainViewModel_NoResults");
 
         private string _categoryLabel => L10N.Localize("MainViewModel_Category");
         private string _allLabel => L10N.Localize("MainViewModel_All");

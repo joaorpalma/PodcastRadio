@@ -175,6 +175,10 @@
     <ImageAsset Include="Resources\Assets.xcassets\radio_app.imageset\ic_radio.png" />
     <ImageAsset Include="Resources\Assets.xcassets\radio_app.imageset\ic_radio_2x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\radio_app.imageset\ic_radio_3x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_noresults.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_noresults.imageset\ic_info_outline_36pt.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_noresults.imageset\ic_info_outline_36pt_2x.png" />
+    <ImageAsset Include="Resources\Assets.xcassets\main_noresults.imageset\ic_info_outline_36pt_3x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -202,6 +206,7 @@
     <Folder Include="Views\Podcast\Cells\" />
     <Folder Include="Resources\Assets.xcassets\podcast_pause.imageset\" />
     <Folder Include="Resources\Assets.xcassets\radio_app.imageset\" />
+    <Folder Include="Resources\Assets.xcassets\main_noresults.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
