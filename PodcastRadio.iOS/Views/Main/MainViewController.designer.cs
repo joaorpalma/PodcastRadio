@@ -16,6 +16,12 @@ namespace PodcastRadio.iOS.Views.Main
 		UIKit.UIView _closeTabView { get; set; }
 
 		[Outlet]
+		UIKit.UILabel _noResultsLabel { get; set; }
+
+		[Outlet]
+		UIKit.UIView _noResultsView { get; set; }
+
+		[Outlet]
 		UIKit.UIView _pickerHeaderView { get; set; }
 
 		[Outlet]
@@ -26,6 +32,11 @@ namespace PodcastRadio.iOS.Views.Main
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (_closeTabView != null) {
+				_closeTabView.Dispose ();
+				_closeTabView = null;
+			}
+
 			if (_pickerHeaderView != null) {
 				_pickerHeaderView.Dispose ();
 				_pickerHeaderView = null;
@@ -41,9 +52,14 @@ namespace PodcastRadio.iOS.Views.Main
 				_tableView = null;
 			}
 
-			if (_closeTabView != null) {
-				_closeTabView.Dispose ();
-				_closeTabView = null;
+			if (_noResultsView != null) {
+				_noResultsView.Dispose ();
+				_noResultsView = null;
+			}
+
+			if (_noResultsLabel != null) {
+				_noResultsLabel.Dispose ();
+				_noResultsLabel = null;
 			}
 		}
 	}

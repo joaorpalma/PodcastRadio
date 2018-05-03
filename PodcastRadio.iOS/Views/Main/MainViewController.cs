@@ -34,9 +34,13 @@ namespace PodcastRadio.iOS.Views.Main
                 case nameof(ViewModel.PodcastDetail):
                     if (ViewModel.PodcastDetail?.Count >= 1)
                     {
-                        _tableView.Hidden = false;
+                        HideTable(false);
                         _pickerView.Model = new CategoryPickerModel(ViewModel.Categories, OnSelectCategory);
                         SetTableView(!ViewModel.IsSearching);
+                    }
+                    else
+                    {
+                        HideTable(true);
                     }
                     break;
 
@@ -91,6 +95,12 @@ namespace PodcastRadio.iOS.Views.Main
             _closeTabView.UserInteractionEnabled = !hidePicker;
         }
 
+        private void HideTable(bool hide)
+        {
+            _tableView.Hidden = hide;
+            _noResultsView.Hidden = !hide;
+        }
+
         private void ConfigureView()
         {
             this.NavigationController.NavigationBar.PrefersLargeTitles = true;
@@ -132,6 +142,9 @@ namespace PodcastRadio.iOS.Views.Main
             DefinesPresentationContext = true;
             NavigationItem.SearchController = search;
 
+            UILabelExtensions.SetupLabelAppearance(_noResultsLabel, ViewModel.NoResultsLabel, Colors.Black, 15f, UIFontWeight.Medium);
+
+            _noResultsView.Hidden = true;
             _tableView.Hidden = true;
             PickerSwitch(true);
 

@@ -24,6 +24,10 @@
     "translated": "Por"
   },
   {
+    "key": "MainViewModel_NoResults",
+    "translated": "Sem Resultados"
+  },
+  {
     "key": "PodcastViewModel_Track",
     "translated": "Track"
   },
