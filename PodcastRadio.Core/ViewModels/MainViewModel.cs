@@ -22,7 +22,7 @@ namespace PodcastRadio.Core.ViewModels
         private List<PodcastModel> _savedPodcastList;
 
         public bool IsSearching { get; private set; }
-        public string SearchPodcast { get; set; }
+        public string SearchPodcast { get; private set; }
         public string SelectedCategory { get; private set; }
 
         private List<string> _categories;
@@ -41,6 +41,9 @@ namespace PodcastRadio.Core.ViewModels
 
         private XPCommand _openInformationViewCommand;
         public XPCommand OpenInformationViewCommand => _openInformationViewCommand ?? (_openInformationViewCommand = new XPCommand(async () => await OpenInformationView()));
+
+        private XPCommand<string> _fillSearchFieldCommand;
+        public XPCommand<string> FillSearchFieldCommand => _fillSearchFieldCommand ?? (_fillSearchFieldCommand = new XPCommand<string>((value) => FillSearchField(value)));
 
         private XPCommand<PodcastModel> _openPodcastViewCommand;
         public XPCommand<PodcastModel> OpenPodcastViewCommand => _openPodcastViewCommand ?? (_openPodcastViewCommand = new XPCommand<PodcastModel>(async (podcast) => await OpenPodcastView(podcast), CanExecute));
@@ -145,6 +148,11 @@ namespace PodcastRadio.Core.ViewModels
             IsSearching = false;
             _podcastDetail = null;
             PodcastDetail = _savedPodcastList;
+        }
+
+        private void FillSearchField(string value)
+        {
+            SearchPodcast = value;
         }
 
         private async Task OpenInformationView()

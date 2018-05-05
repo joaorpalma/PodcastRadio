@@ -13,10 +13,16 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
 	partial class EpisodeCell
 	{
 		[Outlet]
+		UIKit.UIActivityIndicatorView _activityIndicator { get; set; }
+
+		[Outlet]
 		UIKit.UILabel _durationLabel { get; set; }
 
 		[Outlet]
 		UIKit.UIImageView _explicit { get; set; }
+
+		[Outlet]
+		UIKit.UIView _loadingView { get; set; }
 
 		[Outlet]
 		UIKit.UILabel _nameLabel { get; set; }
@@ -47,19 +53,29 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
 				_nameLabel = null;
 			}
 
-			if (_playImage != null) {
-				_playImage.Dispose ();
-				_playImage = null;
-			}
-
 			if (_playButton != null) {
 				_playButton.Dispose ();
 				_playButton = null;
 			}
 
+			if (_playImage != null) {
+				_playImage.Dispose ();
+				_playImage = null;
+			}
+
 			if (_trackLabel != null) {
 				_trackLabel.Dispose ();
 				_trackLabel = null;
+			}
+
+			if (_loadingView != null) {
+				_loadingView.Dispose ();
+				_loadingView = null;
+			}
+
+			if (_activityIndicator != null) {
+				_activityIndicator.Dispose ();
+				_activityIndicator = null;
 			}
 		}
 	}
