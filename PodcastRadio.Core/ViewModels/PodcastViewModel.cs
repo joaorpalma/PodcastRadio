@@ -106,7 +106,7 @@ namespace PodcastRadio.Core.ViewModels
 
         private async Task PlayEpisode(Episode episode)
         {
-            _dialogService.ShowLoading();
+            //_dialogService.ShowLoading();
             IsBusy = true;
             try
             {
@@ -140,7 +140,7 @@ namespace PodcastRadio.Core.ViewModels
             }
             finally
             {
-                _dialogService.HideLoading();
+                //_dialogService.HideLoading();
                 IsBusy = false;
                 RaisePropertyChanged(nameof(Podcast));
             }

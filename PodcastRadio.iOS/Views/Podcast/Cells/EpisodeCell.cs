@@ -24,6 +24,8 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
             _episode = episode;
             _playPressed = playPressed;
             _locationResources = locationResources;
+            _loadingView.Hidden = true;
+            _activityIndicator.StopAnimating();
 
             UILabelExtensions.SetupLabelAppearance(_nameLabel, episode.Title, Colors.Black, 14f, UIFontWeight.Semibold);
             UILabelExtensions.SetupLabelAppearance(_trackLabel, episode.EpisodeNumber, Colors.Black, 16f, UIFontWeight.Semibold);
@@ -46,6 +48,8 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
 
         private void OnplayButton_TouchUpInside(object sender, EventArgs e)
         {
+            _loadingView.Hidden = false;
+            _activityIndicator.StartAnimating();
             _playPressed?.Invoke(this, _episode);
         }
 

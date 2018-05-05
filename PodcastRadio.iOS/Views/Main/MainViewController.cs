@@ -176,7 +176,7 @@ namespace PodcastRadio.iOS.Views.Main
 
         public void UpdateSearchResultsForSearchController(UISearchController searchController)
         {
-            ViewModel.SearchPodcast = searchController.SearchBar.Text;
+            ViewModel.FillSearchFieldCommand.Execute(searchController.SearchBar.Text);
         }
 
         public override void ViewWillAppear(bool animated)

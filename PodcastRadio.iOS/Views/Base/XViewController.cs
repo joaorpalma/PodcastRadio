@@ -15,8 +15,7 @@ namespace PodcastRadio.iOS.Views.Base
         public Type RequestedViewModel { get; set; }
         public object ParameterData { get; set; }
         public virtual bool HideNavigationBar => false;
-
-        public XViewController(string nibName, NSBundle bundle) : base(nibName, bundle) { }
+        public XViewController(string nibName, NSBundle bundle) : base(nibName, bundle) {}
 
         public override void ViewDidLoad()
         {
