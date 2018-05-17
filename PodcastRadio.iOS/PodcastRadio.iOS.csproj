@@ -23,9 +23,9 @@
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFastDev>true</MtouchFastDev>
     <IOSDebuggerPort>43570</IOSDebuggerPort>
-    <MtouchLink>None</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
-    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <DeviceSpecificBuild>false</DeviceSpecificBuild>
     <MtouchVerbosity></MtouchVerbosity>
     <CodesignProvision>VS: com.joaopalma.PodcastRadio Development</CodesignProvision>
@@ -143,8 +143,6 @@
     <ImageAsset Include="Resources\Assets.xcassets\information_close.imageset\ic_close_white.png" />
     <ImageAsset Include="Resources\Assets.xcassets\information_close.imageset\ic_close_white_2x.png" />
     <ImageAsset Include="Resources\Assets.xcassets\information_close.imageset\ic_close_white_3x.png" />
-    <ImageAsset Include="Resources\Assets.xcassets\linn.imageset\Contents.json" />
-    <ImageAsset Include="Resources\Assets.xcassets\linn.imageset\logo-black-chunky.png" />
     <ImageAsset Include="Resources\Assets.xcassets\main_explicit.imageset\Contents.json" />
     <ImageAsset Include="Resources\Assets.xcassets\main_explicit.imageset\icons8-explicit-24.png" />
     <ImageAsset Include="Resources\Assets.xcassets\main_explicit.imageset\icons8-explicit-48.png" />

@@ -24,10 +24,14 @@ namespace PodcastRadio.iOS.Views.Main.Cells
             DateTime parsedDate = DateTime.Parse(podcast?.ReleaseDate ?? default(DateTime).ToString());
             var resultDate = TimeUtils.SetMonthAndYearFormat(parsedDate);
 
+
+			_logoImage.Image?.Dispose();
             ImageService.Instance.LoadUrl(podcast?.ArtworkSmall).Retry(3, 200).Into(_logoImage); 
             _logoImage.Layer.CornerRadius = 12;
             _logoImage.Layer.MasksToBounds = true;
 
+
+			_contentTypeImage.Image?.Dispose();
             if (podcast?.AdvisoryRating == "Explicit")
             {
                 _contentTypeImage.Hidden = false;
@@ -38,13 +42,13 @@ namespace PodcastRadio.iOS.Views.Main.Cells
                 _contentTypeImage.Hidden = true;
             }
 
-            _flagImage.Layer.ShadowColor = Colors.Black.CGColor;
-            _flagImage.Layer.ShadowRadius = 1;
-            _flagImage.Layer.ShadowOffset = new CGSize(0.5f, 0.5f);
-            _flagImage.Layer.ShadowOpacity = 1;
-            _flagImage.ClipsToBounds = false;
+            //_flagImage.Layer.ShadowColor = Colors.Black.CGColor;
+            //_flagImage.Layer.ShadowRadius = 1;
+            //_flagImage.Layer.ShadowOffset = new CGSize(0.5f, 0.5f);
+            //_flagImage.Layer.ShadowOpacity = 1;
+			//_flagImage.ClipsToBounds = false;
+             //UIImageExtensions.GetCountryFlag(_flagImage, podcast.Country);
 
-            // UIImageExtensions.GetCountryFlag(_flagImage, podcast.Country);
             _flagImage.Hidden = true;
 
             UILabelExtensions.SetupLabelAppearance(_dayDateLabel, resultDate[0], Colors.Black, 24f);

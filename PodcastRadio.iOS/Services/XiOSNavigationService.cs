@@ -69,9 +69,9 @@ namespace PodcastRadio.iOS.Services
             }
 
             if(_showAsPresentView)
-               MasterNavigationController.PresentViewController(vc, true, null);
+                MasterNavigationController.PresentViewController(vc, true, null);
             else
-               MasterNavigationController.PushViewController(vc, true);
+                MasterNavigationController.PushViewController(vc, true);
 
         }
 

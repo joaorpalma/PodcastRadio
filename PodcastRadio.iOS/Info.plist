@@ -44,7 +44,5 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>Custom Property</key>
-	<string></string>
 </dict>
 </plist>

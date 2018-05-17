@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -20,11 +21,13 @@ namespace PodcastRadio.Core.Services
         private static readonly XNamespace itunes = "http://www.itunes.com/dtds/podcast-1.0.dtd";
  
         private HttpClient _httpClient;
-        private HttpClient HttpClient => _httpClient ?? (_httpClient = new HttpClient(new RetryHandler(new HttpClientHandler())));
+        //a handler was created so its necessary to create a new clienthandler
+		private HttpClient HttpClient => _httpClient ?? (_httpClient = new HttpClient(new RetryHandler(new HttpClientHandler())));
 
         public async Task<T> GetAsync<T>(string link, CancellationToken ct = default(CancellationToken))
         {
-            //HttpClient.BaseAddress = new Uri(_basePath);
+			//HttpClient.BaseAddress = new Uri(_basePath);
+			HttpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             var response = await HttpClient.GetAsync($"{_basePath}{link}", ct);
             var obj = await DeserializeAsync<T>(response);
             return obj;
