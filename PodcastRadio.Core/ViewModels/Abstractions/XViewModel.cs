@@ -7,15 +7,12 @@ using PodcastRadio.Core.Services.Abstractions;
 
 namespace PodcastRadio.Core.ViewModels.Abstractions
 {
-    public class XViewModel : IXViewModel, INotifyPropertyChanged
+    public abstract class XViewModel : IXViewModel, INotifyPropertyChanged
     {
         private static IXNavigationService _navService;
-        private static IXMainThreadDispatcher _mainThreadDispatcher;
         protected static IXNavigationService NavService = _navService ?? (_navService = App.Container.GetInstance<IXNavigationService>());
-        protected static IXMainThreadDispatcher MainThreadDispatcher => _mainThreadDispatcher ?? (_mainThreadDispatcher = App.Container.GetInstance<IXMainThreadDispatcher>());
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private static readonly PropertyChangedEventArgs AllPropertiesChanged = new PropertyChangedEventArgs(string.Empty);
 
         private bool _isBusy;
         public bool IsBusy
@@ -46,9 +43,9 @@ namespace PodcastRadio.Core.ViewModels.Abstractions
             return true;
         }
 
-        public virtual void Prepare(){}
+        public virtual void Prepare() {}
 
-        public virtual void Prepare(object dataObject){}
+        public virtual void Prepare(object dataObject) {}
     }
 
     public abstract class XViewModel<TObject> : XViewModel
