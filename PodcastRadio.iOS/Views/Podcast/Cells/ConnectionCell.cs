@@ -18,6 +18,7 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
         {
             _link = link;
             _openWebsite = openWebsite;
+			_iconImage.Image?.Dispose();
             _iconImage.Image = UIImage.FromBundle("podcast_weblink");
             UILabelExtensions.SetupLabelAppearance(_nameLabel, name, Colors.MainBlue, 14f);
 

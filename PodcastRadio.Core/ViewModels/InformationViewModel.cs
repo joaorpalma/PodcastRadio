@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using PodcastRadio.Core.Helpers;
 using PodcastRadio.Core.Helpers.Commands;
 using PodcastRadio.Core.Language;
 using PodcastRadio.Core.Services.Abstractions;
@@ -11,8 +12,8 @@ namespace PodcastRadio.Core.ViewModels
     {
         private XPCommand _closeViewCommand;
         public XPCommand CloseViewCommand => _closeViewCommand ?? (_closeViewCommand = new XPCommand(async () => await CloseView()));
-
-        public InformationViewModel() {}
+        
+		public InformationViewModel() { }
 
         #region resources
 

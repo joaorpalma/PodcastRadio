@@ -22,9 +22,7 @@ namespace PodcastRadio.iOS.Views.Information
             UILabelExtensions.SetupLabelAppearance(_titleLabel,ViewModel.Title, Colors.White, 18f, UIFontWeight.Bold);
             UILabelExtensions.SetupLabelAppearance(_createdByLabel, ViewModel.CreatedBy, Colors.Black, 20f);
             UILabelExtensions.SetupLabelAppearance(_creatorNameLabel, ViewModel.JoaoPalma, Colors.Black, 34f);
-            UILabelExtensions.SetupLabelAppearance(_toLabel, ViewModel.ForLabel, Colors.Black, 20f);
             UILabelExtensions.SetupLabelAppearance(_copyrightLabel, ViewModel.CopyrightLabel, Colors.Black, 16f);
-            _logoImage.Image = UIImage.FromBundle("linn");
             _navBar.BackgroundColor = Colors.MainBlue;
             _closeButton.SetImage(UIImage.FromBundle("information_close")?.ImageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), UIControlState.Normal);
             _closeButton.SetTitle("", UIControlState.Normal);

@@ -27,11 +27,14 @@ namespace PodcastRadio.iOS.Views.Podcast.Cells
             _loadingView.Hidden = true;
             _activityIndicator.StopAnimating();
 
+			_playImage.Image?.Dispose();
+			_explicit.Image?.Dispose();
+
             UILabelExtensions.SetupLabelAppearance(_nameLabel, episode.Title, Colors.Black, 14f, UIFontWeight.Semibold);
             UILabelExtensions.SetupLabelAppearance(_trackLabel, episode.EpisodeNumber, Colors.Black, 16f, UIFontWeight.Semibold);
 
             SetEpisode(episode.IsPlaying);
-
+            
             if(episode.Explicit == "yes")
             {
                 _explicit.Hidden = false;

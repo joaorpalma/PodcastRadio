@@ -12,14 +12,13 @@ namespace PodcastRadio.iOS
         public override UIWindow Window { get; set; }
         public bool RestrictRotation { get; set; }
         public UINavigationController NavigationController { get; set; }
-
+        
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
             Setup.Initialize();
             Window.MakeKeyAndVisible();
-
-
+           
             // Title bar background color
             UINavigationBar.Appearance.BarTintColor = Colors.MainBlue;
             UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes() { TextColor = Colors.White});
