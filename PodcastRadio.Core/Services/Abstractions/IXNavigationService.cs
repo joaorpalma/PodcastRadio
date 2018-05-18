@@ -9,7 +9,7 @@ namespace PodcastRadio.Core.Services.Abstractions
         void Initialize();
         Task NavigateAsync<TViewModel>() where TViewModel : class, IXViewModel;
         Task NavigateAsync<TViewModel, TObject>(TObject data) where TViewModel : class, IXViewModel;
-        Task Close<TViewModel>() where TViewModel : class, IXViewModel;
+        Task Close<TViewModel>(TViewModel viewModel) where TViewModel : class, IXViewModel;
     }
 }
 

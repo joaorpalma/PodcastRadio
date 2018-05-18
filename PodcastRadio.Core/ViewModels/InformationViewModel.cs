@@ -27,7 +27,7 @@ namespace PodcastRadio.Core.ViewModels
 
         private async Task CloseView()
         {
-            await NavService.Close<InformationViewModel>();
+            await NavService.Close(this);
         }
     }
 }

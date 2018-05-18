@@ -60,6 +60,6 @@ namespace PodcastRadio.Core.Services
 
         public abstract Task NavigatePlatformAsync<TViewModel>() where TViewModel : class, IXViewModel;
         public abstract Task NavigatePlatformAsync<TViewModel, TMyObject>(TMyObject data) where TViewModel : class, IXViewModel;
-        public abstract Task Close<TViewModel>() where TViewModel : class, IXViewModel;
+        public abstract Task Close<TViewModel>(TViewModel viewModel) where TViewModel : class, IXViewModel;
     }
 }

@@ -80,7 +80,7 @@ namespace PodcastRadio.Core.ViewModels
                     else
                     {
                         //add some error message...
-                        await NavService.Close<PodcastViewModel>();
+                        await NavService.Close(this);
                     }
                 }
                 catch (Exception ex)

@@ -75,12 +75,13 @@ namespace PodcastRadio.iOS.Services
 
         }
 
-        public override Task Close<TViewModel>()
+        public override Task Close<TViewModel>(TViewModel viewModel)
         {
             if (typeof(IPresentView).IsAssignableFrom(typeof(TViewModel)))
                 MasterNavigationController.DismissViewController(true, null);
             else
                 MasterNavigationController.PopViewController(true);
+            
             return Task.CompletedTask;
         }
 
