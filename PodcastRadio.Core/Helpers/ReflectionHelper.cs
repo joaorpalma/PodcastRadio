@@ -51,6 +51,11 @@ namespace PodcastRadio.Core.Helpers
             }
             return model;
         }
+
+        public static bool IsNull(this object T)
+        {
+            return T == null;
+        } 
     }
 }
 

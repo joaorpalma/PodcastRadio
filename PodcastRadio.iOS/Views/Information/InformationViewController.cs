@@ -8,8 +8,10 @@ using UIKit;
 
 namespace PodcastRadio.iOS.Views.Information
 {
-    public partial class InformationViewController : XViewController<InformationViewModel>, IPresentView
+    public partial class InformationViewController : XViewController<InformationViewModel>
     {
+        public override bool ShowAsPresentView => true;
+
         public InformationViewController() : base("InformationViewController", null) {}
 
         public override void ViewDidLoad()

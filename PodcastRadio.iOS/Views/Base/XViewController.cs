@@ -12,9 +12,9 @@ namespace PodcastRadio.iOS.Views.Base
     public abstract class XViewController<TViewModel> : UIViewController, IXiOSView where TViewModel : class, IXViewModel
     {
         public TViewModel ViewModel { get; private set; }
-        public Type RequestedViewModel { get; set; }
         public object ParameterData { get; set; }
-        public virtual bool HideNavigationBar => false;
+        public virtual bool ShowAsPresentView => false;
+
         public XViewController(string nibName, NSBundle bundle) : base(nibName, bundle) {}
 
         public override void ViewDidLoad()

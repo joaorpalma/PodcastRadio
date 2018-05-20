@@ -9,25 +9,13 @@ using PodcastRadio.iOS.Interfaces;
 using PodcastRadio.iOS.Views.Base;
 using PodcastRadio.Core.Helpers;
 using UIKit;
-using PodcastRadio.iOS.Views.Information;
-using PodcastRadio.Core.Services.Abstractions;
+using System.Reflection;
 
 namespace PodcastRadio.iOS.Services
 {
     public class XiOSNavigationService : XNavigationService
     {
         public UINavigationController MasterNavigationController;
-
-        public override Task NavigatePlatformAsync<TViewModel>()
-        {
-            UIApplication.SharedApplication.InvokeOnMainThread(() =>
-            {
-                var viewController = CreateViewControllerForViewModel<TViewModel, object>(null);
-                ShowView(viewController);
-            });
-
-            return Task.CompletedTask;
-        }
 
         public override Task NavigatePlatformAsync<TViewModel, TObject>(TObject data)
         {
@@ -49,13 +37,14 @@ namespace PodcastRadio.iOS.Services
             Debug.WriteLine($"Final ViewModel: {vmType} for viewcontroller: {viewController}");
 
             var xVC = viewController as IXiOSView;
-            if (xVC != null)
+
+            if (xVC != null && !data.IsNull())
                 xVC.ParameterData = data;
 
             return viewController;
         }
 
-        private void ShowView(UIViewController vc)
+        private void ShowView(UIViewController viewController)
         {
             if (MasterNavigationController == null)
             {
@@ -65,19 +54,22 @@ namespace PodcastRadio.iOS.Services
                 appDelegate.NavigationController = MasterNavigationController;
             }
 
-            if(vc is IPresentView)
-                MasterNavigationController.PresentViewController(vc, true, null);
+            var presentViewProperty = viewController?.GetType()?.GetProperty("ShowAsPresentView");
+
+            if((bool)presentViewProperty?.GetValue(viewController))
+                MasterNavigationController.PresentViewController(viewController, true, null);
             else
-                MasterNavigationController.PushViewController(vc, true);
+                MasterNavigationController.PushViewController(viewController, true);
         }
 
         public override Task Close<TViewModel>(TViewModel viewModel)
         {
-            var vc = GetViewForViewModel(typeof(TViewModel));
+            var viewController = MasterNavigationController.VisibleViewController;
+            var presentViewProperty = viewController?.GetType()?.GetProperty("ShowAsPresentView");
 
-            if (typeof(IPresentView).IsAssignableFrom(vc))
+            if ((bool)presentViewProperty?.GetValue(viewController))
                 MasterNavigationController.DismissViewController(true, null);
-            else
+            else 
                 MasterNavigationController.PopViewController(true);
             
             return Task.CompletedTask;

@@ -157,7 +157,7 @@ namespace PodcastRadio.Core.ViewModels
 
         private async Task OpenInformationView()
         {
-            await NavService.NavigateAsync<InformationViewModel>();
+            await NavService.NavigateAsync<InformationViewModel, object>(null);
         }
 
         private async Task OpenPodcastView(PodcastModel podcast)

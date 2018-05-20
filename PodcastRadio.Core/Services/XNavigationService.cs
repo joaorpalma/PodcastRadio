@@ -28,7 +28,8 @@ namespace PodcastRadio.Core.Services
                 var vm = GetBaseGenericType(platformView);
                 if (vm == null || !vm.GetTypeInfo().IsSubclassOf(typeof(XViewModel)))
                 {
-                    Debugger.Break(); //Found a view that isn't associated with a viewmodel or not of base type xviewmodel
+                    //Found a view that isn't associated with a viewmodel or not of base type xviewmodel
+                    Debugger.Break();
                     continue;
                 }
                 Debug.WriteLine($"ViewModel: {vm} for View: {platformView}");
@@ -49,16 +50,11 @@ namespace PodcastRadio.Core.Services
             return ViewModelsForView[viewModel];
         }
 
-        public async Task NavigateAsync<TViewModel>() where TViewModel : class, IXViewModel
-        {
-            await NavigatePlatformAsync<TViewModel>();
-        }
         public async Task NavigateAsync<TViewModel, TObject>(TObject data) where TViewModel : class, IXViewModel
         {
             await NavigatePlatformAsync<TViewModel, TObject>(data);
         }
 
-        public abstract Task NavigatePlatformAsync<TViewModel>() where TViewModel : class, IXViewModel;
         public abstract Task NavigatePlatformAsync<TViewModel, TMyObject>(TMyObject data) where TViewModel : class, IXViewModel;
         public abstract Task Close<TViewModel>(TViewModel viewModel) where TViewModel : class, IXViewModel;
     }

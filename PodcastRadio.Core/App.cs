@@ -16,7 +16,7 @@ namespace PodcastRadio.Core
 
         public static void Start()
         {
-            NavService.NavigateAsync<MainViewModel>();
+            NavService.NavigateAsync<MainViewModel, object>(null);
         }
 
         public static void Initialize()
