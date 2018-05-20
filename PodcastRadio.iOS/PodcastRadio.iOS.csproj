@@ -287,6 +287,7 @@
       <DependentUpon>PodcastHeaderCell.cs</DependentUpon>
     </Compile>
     <Compile Include="RadioApplication.cs" />
+    <Compile Include="Interfaces\IPresentView.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PodcastRadio.Core\PodcastRadio.Core.csproj">

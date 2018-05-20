@@ -2,12 +2,13 @@
 using CoreGraphics;
 using PodcastRadio.Core.ViewModels;
 using PodcastRadio.iOS.Helpers;
+using PodcastRadio.iOS.Interfaces;
 using PodcastRadio.iOS.Views.Base;
 using UIKit;
 
 namespace PodcastRadio.iOS.Views.Information
 {
-    public partial class InformationViewController : XViewController<InformationViewModel>
+    public partial class InformationViewController : XViewController<InformationViewModel>, IPresentView
     {
         public InformationViewController() : base("InformationViewController", null) {}
 

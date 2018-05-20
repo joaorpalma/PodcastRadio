@@ -8,7 +8,7 @@ using PodcastRadio.Core.ViewModels.Abstractions;
 
 namespace PodcastRadio.Core.ViewModels
 {
-    public class InformationViewModel : XViewModel, IPresentView
+    public class InformationViewModel : XViewModel
     {
         private XPCommand _closeViewCommand;
         public XPCommand CloseViewCommand => _closeViewCommand ?? (_closeViewCommand = new XPCommand(async () => await CloseView()));

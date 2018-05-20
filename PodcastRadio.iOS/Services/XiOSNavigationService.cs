@@ -16,8 +16,6 @@ namespace PodcastRadio.iOS.Services
 {
     public class XiOSNavigationService : XNavigationService
     {
-        private bool _showAsPresentView = false;
-
         public UINavigationController MasterNavigationController;
 
         public override Task NavigatePlatformAsync<TViewModel>()
@@ -45,8 +43,7 @@ namespace PodcastRadio.iOS.Services
         private UIViewController CreateViewControllerForViewModel<TViewModel, TObject>(TObject data) where TViewModel : class, IXViewModel
         {
             var vmType = typeof(TViewModel);
-            _showAsPresentView = typeof(IPresentView).IsAssignableFrom(vmType);
-            var view = GetViewForViewModel(vmType);
+            var view = GetViewForViewModel(typeof(TViewModel));
             var viewController = Activator.CreateInstance(view) as UIViewController;
 
             Debug.WriteLine($"Final ViewModel: {vmType} for viewcontroller: {viewController}");
@@ -68,16 +65,17 @@ namespace PodcastRadio.iOS.Services
                 appDelegate.NavigationController = MasterNavigationController;
             }
 
-            if(_showAsPresentView)
+            if(vc is IPresentView)
                 MasterNavigationController.PresentViewController(vc, true, null);
             else
                 MasterNavigationController.PushViewController(vc, true);
-
         }
 
         public override Task Close<TViewModel>(TViewModel viewModel)
         {
-            if (typeof(IPresentView).IsAssignableFrom(typeof(TViewModel)))
+            var vc = GetViewForViewModel(typeof(TViewModel));
+
+            if (typeof(IPresentView).IsAssignableFrom(vc))
                 MasterNavigationController.DismissViewController(true, null);
             else
                 MasterNavigationController.PopViewController(true);

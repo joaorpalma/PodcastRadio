@@ -1,5 +1,5 @@
 ﻿using System;
-namespace PodcastRadio.Core.Services.Abstractions
+namespace PodcastRadio.iOS.Interfaces
 {
     public interface IPresentView {}
 }
