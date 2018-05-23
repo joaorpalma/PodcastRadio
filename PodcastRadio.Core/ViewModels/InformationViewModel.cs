@@ -20,7 +20,6 @@ namespace PodcastRadio.Core.ViewModels
         public string Title => L10N.Localize("InformationViewModel_Title");
         public string CreatedBy => L10N.Localize("InformationViewModel_CreatedBy");
         public string JoaoPalma => L10N.Localize("InformationViewModel_JoaoPalma");
-        public string ForLabel => L10N.Localize("InformationViewModel_For");
         public string CopyrightLabel => L10N.Localize("InformationViewModel_Copyright");
 
         #endregion
